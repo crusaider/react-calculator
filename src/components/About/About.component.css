@@ -1,0 +1,10 @@
+.AboutComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.AboutComponent button {
+  margin: 6px;
+
+}
