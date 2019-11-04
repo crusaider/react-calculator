@@ -19,7 +19,7 @@ const keys: {
     code: KeyCode.SwitchSign
   },
   {
-    classes: 'DropKey TextKey',
+    classes: 'TextKey',
     label: 'drop',
     code: KeyCode.Drop
   },
@@ -52,7 +52,7 @@ const keys: {
     code: KeyCode.Six
   },
   {
-    label: '*',
+    label: 'x',
     code: KeyCode.Multiply
   },
   {

@@ -12,9 +12,12 @@
 
 .AboutBoxComponent div:first-child {
   background-color: white;
-  text-align: center;
   padding: 12px;
   border-radius: 3px;
-  max-width: 250px;
+  max-width: 300px;
   box-shadow: 6px 6px 6px darkgray;
+}
+
+.AboutBoxComponent div h1 {
+  text-align: center;
 }

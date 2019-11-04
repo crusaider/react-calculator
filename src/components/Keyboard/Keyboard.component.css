@@ -14,10 +14,6 @@
   grid-column-end: 3;
 }
 
-.DropKey {
-  grid-column-start: 4;
-}
-
 .ZeroKey {
   grid-column-start: 1;
   grid-column-end: 3;
