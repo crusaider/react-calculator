@@ -23,7 +23,7 @@ export const AboutBoxComponent: React.FC<AboutBoxComponentProps> = (
         </p>
         <p>
           To learn more about RPN and HP calculators please visit{' '}
-          <a target="_blank" href="https://www.hpmuseum.org/">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.hpmuseum.org/">
             https://www.hpmuseum.org/
           </a>
           .
