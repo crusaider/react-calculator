@@ -11,13 +11,13 @@
     "CHOKIDAR_USEPOLLING": "true",
     "WATCHPACK_POLLING": "true"
   },
-  "postCreateCommand": "npm ci --legacy-peer-deps",
+  "postCreateCommand": "npm ci && npx playwright install chromium",
   "customizations": {
     "vscode": {
       "extensions": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "dbaeumer.vscode-eslint"
+        "biomejs.biome"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"

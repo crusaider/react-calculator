@@ -9,7 +9,7 @@ export const AboutBoxComponent: React.FC<AboutBoxComponentProps> = (
   props: AboutBoxComponentProps
 ) => {
   return (
-    <div className="AboutBoxComponent" onClick={e => props.onClose()}>
+    <div className="AboutBoxComponent" onClick={_e => props.onClose()}>
       <div>
         <h1>React Calculator</h1>
         <p>

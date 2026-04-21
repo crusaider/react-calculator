@@ -18,7 +18,7 @@ export const AboutComponent: React.FC<AboutComponentProps> = (
 ) => {
   return (
     <div className="AboutComponent">
-      <button onClick={e => props.onToggleAbout()}>?</button>
+      <button onClick={_e => props.onToggleAbout()}>?</button>
       {props.show ? (
         <AboutBoxComponent onClose={() => props.onToggleAbout()} />
       ) : null}
