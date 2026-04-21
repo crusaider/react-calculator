@@ -1,0 +1,12 @@
+.DisplayComponent {
+  margin: 4px 6px 12px;
+  padding: 6px;
+  background-color: #ccd1bb;
+  border-radius: 6px;
+  border: inset;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
