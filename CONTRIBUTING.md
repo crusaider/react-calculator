@@ -9,6 +9,8 @@ Thanks for your interest in contributing!
 3. Run `npm ci`
 4. Create a feature branch from `master`
 
+Read `ARCHITECTURE.md` for the application structure and `TESTING.md` for test-layer expectations before making structural or behavior changes.
+
 ## Before Committing
 
 Run `npm run verify` locally to ensure your changes pass all checks:

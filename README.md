@@ -75,3 +75,9 @@ Deployment is handled by GitHub Actions.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+## Repository Guides
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) explains the component, Redux, and runtime structure.
+- [TESTING.md](TESTING.md) documents test layers and expected verification commands.
+- [.github/copilot-instructions.md](.github/copilot-instructions.md) captures shared repository instructions for AI-assisted work.
