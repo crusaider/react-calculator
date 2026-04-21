@@ -37,6 +37,7 @@ It runs on push and pull requests, and executes:
 - `npm run build`
 
 It also cancels older in-progress runs for the same branch when a newer commit is pushed.
+It can also be started manually via GitHub Actions (`workflow_dispatch`).
 
 Dependency updates are automated with Dependabot via `.github/dependabot.yml`.
 
