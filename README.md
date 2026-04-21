@@ -6,6 +6,24 @@ to se it as a tribute to the HP calculators of the 60s, 70s and 80s)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dev Container
+
+The repository includes a dev container configuration in [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json).
+
+It is pinned to Node 16 because the current Create React App toolchain is old enough that newer Node/npm combinations are more likely to fail during install or runtime.
+
+When the container is created it runs:
+
+### `npm ci --legacy-peer-deps`
+
+This keeps the current app installable without changing application behavior.
+
+After opening the project in the container, run:
+
+### `npm start`
+
+The app will be available on port 3000, which is forwarded by the container configuration.
+
 ## Available Scripts
 
 In the project directory, you can run:
