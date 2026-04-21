@@ -12,9 +12,7 @@ The repository includes a dev container configuration in [.devcontainer/devconta
 
 It is pinned to Node 16 because the current Create React App toolchain is old enough that newer Node/npm combinations are more likely to fail during install or runtime.
 
-For local non-container development, use Node 16 as well (see `.nvmrc`).
-Editor formatting defaults are defined in `.editorconfig`.
-Husky git hooks run `npm run verify` before each commit to catch issues early.
+For local development, editor configs are in `.editorconfig`, Husky pre-commit hooks run `npm run verify`, and `.gitignore` excludes IDE, OS, and npm artifacts.
 
 When the container is created it runs:
 
@@ -27,23 +25,6 @@ After opening the project in the container, run:
 ### `npm start`
 
 The app will be available on port 3000, which is forwarded by the container configuration.
-
-## CI
-
-The repository includes a GitHub Actions workflow at `.github/workflows/ci.yml`.
-
-It runs on push and pull requests, and executes:
-
-- `npm ci --legacy-peer-deps`
-- `npm run verify`
-- `npm run build`
-
-It also cancels older in-progress runs for the same branch when a newer commit is pushed.
-It can also be started manually via GitHub Actions (`workflow_dispatch`).
-
-Dependency updates are automated with Dependabot via `.github/dependabot.yml`.
-A dependency review workflow at `.github/workflows/dependency-review.yml` runs on pull requests.
-A pull request template at `.github/pull_request_template.md` standardizes verification checklists.
 
 ## Available Scripts
 
@@ -61,21 +42,6 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run test:ci`
-
-Runs tests once in non-interactive mode (CI-friendly).<br />
-Use this in automation or when you want a deterministic local test run.
-
-### `npm run typecheck`
-
-Runs TypeScript type checking without emitting output files.<br />
-Use this for a fast static safety check during development and in CI.
-
-### `npm run verify`
-
-Runs both typecheck and CI test commands in sequence.<br />
-Use this as a quick pre-push confidence check.
 
 ### `npm run build`
 
