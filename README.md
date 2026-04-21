@@ -65,11 +65,12 @@ Builds the app for production to the `dist` folder.
 
 Serves the production build locally.
 
-### `npm run predeploy && npm run deploy`
+## Deployment
 
-Builds the app in production mode, commits it to the `gh-pages` branch
-and pushes the branch. This updates the app on the GitHub Pages site
-of the repo.
+Deployment is handled by GitHub Actions.
+
+- On each commit to `master`, the Pages deploy workflow builds the app and publishes `dist`.
+- The workflow config lives in `.github/workflows/deploy-pages.yml`.
 
 ## Contributing
 

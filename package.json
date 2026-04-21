@@ -23,7 +23,6 @@
     "@types/react-redux": "^7.1.27",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^0.34.6",
-    "gh-pages": "^6.1.0",
     "husky": "^9.1.7",
     "jsdom": "^29.0.2",
     "lint-staged": "^16.4.0",
@@ -46,9 +45,7 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "typecheck": "tsc --noEmit",
-    "verify": "npm run lint && npm run typecheck && npm run test:ci",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "verify": "npm run lint && npm run typecheck && npm run test:ci"
   },
   "browserslist": {
     "production": [
