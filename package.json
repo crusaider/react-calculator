@@ -49,6 +49,11 @@
   "devDependencies": {
     "@types/react-redux": "^7.1.5",
     "gh-pages": "^2.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "redux-devtools": "^3.5.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "npm run verify"
   }
 }

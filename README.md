@@ -14,6 +14,7 @@ It is pinned to Node 16 because the current Create React App toolchain is old en
 
 For local non-container development, use Node 16 as well (see `.nvmrc`).
 Editor formatting defaults are defined in `.editorconfig`.
+Husky git hooks run `npm run verify` before each commit to catch issues early.
 
 When the container is created it runs:
 
