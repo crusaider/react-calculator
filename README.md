@@ -24,6 +24,16 @@ After opening the project in the container, run:
 
 The app will be available on port 3000, which is forwarded by the container configuration.
 
+## CI
+
+The repository includes a GitHub Actions workflow at `.github/workflows/ci.yml`.
+
+It runs on push and pull requests, and executes:
+
+- `npm ci --legacy-peer-deps`
+- `npm run verify`
+- `npm run build`
+
 ## Available Scripts
 
 In the project directory, you can run:
