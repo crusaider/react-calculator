@@ -36,6 +36,8 @@ It runs on push and pull requests, and executes:
 - `npm run verify`
 - `npm run build`
 
+It also cancels older in-progress runs for the same branch when a newer commit is pushed.
+
 ## Available Scripts
 
 In the project directory, you can run:
