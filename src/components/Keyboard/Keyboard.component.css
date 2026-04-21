@@ -1,5 +1,9 @@
 .Keyboard {
+  border: 0;
   display: grid;
+  margin: 0;
+  min-inline-size: 0;
+  padding: 0;
   grid-template-rows: repeat(5, 50px);
   grid-template-columns: repeat(4, 75px);
 }

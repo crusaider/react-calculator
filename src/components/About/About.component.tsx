@@ -16,11 +16,25 @@ export interface AboutComponentOutputProps {
 export const AboutComponent: React.FC<AboutComponentProps> = (
   props: AboutComponentProps
 ) => {
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+
+  const handleClose = () => {
+    props.onToggleAbout();
+    window.setTimeout(() => buttonRef.current?.focus(), 0);
+  };
+
   return (
     <div className="AboutComponent">
-      <button onClick={_e => props.onToggleAbout()}>?</button>
+      <button
+        aria-label="About React Calculator"
+        onClick={_e => props.onToggleAbout()}
+        ref={buttonRef}
+        type="button"
+      >
+        ?
+      </button>
       {props.show ? (
-        <AboutBoxComponent onClose={() => props.onToggleAbout()} />
+        <AboutBoxComponent onClose={handleClose} />
       ) : null}
     </div>
   );

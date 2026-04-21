@@ -18,8 +18,25 @@ describe('AboutComponent', () => {
     render(<AboutComponent show={true} onToggleAbout={onToggleAbout} />);
 
     expect(screen.getByText('React Calculator')).toBeTruthy();
+    expect(
+      screen.getByRole('dialog', { name: 'React Calculator' }).getAttribute(
+        'aria-modal'
+      )
+    ).toBe('true');
 
-    fireEvent.click(screen.getByRole('button', { name: '?' }));
+    fireEvent.click(screen.getByRole('button', { name: 'About React Calculator' }));
+    expect(onToggleAbout).toHaveBeenCalledTimes(1);
+  });
+
+  it('closes the modal with Escape', () => {
+    const onToggleAbout = vi.fn();
+
+    render(<AboutComponent show={true} onToggleAbout={onToggleAbout} />);
+
+    fireEvent.keyDown(screen.getByRole('dialog', { name: 'React Calculator' }), {
+      key: 'Escape'
+    });
+
     expect(onToggleAbout).toHaveBeenCalledTimes(1);
   });
 });

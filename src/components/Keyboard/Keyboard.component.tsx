@@ -6,21 +6,25 @@ import { KeyCode } from '../../store/stack/actions';
 const keys: {
   classes?: string;
   label: string;
+  ariaLabel?: string;
   code: KeyCode;
 }[] = [
     {
       classes: 'EnterKey TextKey',
       label: 'enter',
+      ariaLabel: 'Enter',
       code: KeyCode.Enter
     },
     {
       classes: 'TextKey',
       label: '+/-',
+      ariaLabel: 'Change sign',
       code: KeyCode.SwitchSign
     },
     {
       classes: 'TextKey',
       label: 'drop',
+      ariaLabel: 'Drop',
       code: KeyCode.Drop
     },
     {
@@ -37,6 +41,7 @@ const keys: {
     },
     {
       label: '/',
+      ariaLabel: 'Divide',
       code: KeyCode.Divide
     },
     {
@@ -53,6 +58,7 @@ const keys: {
     },
     {
       label: 'x',
+      ariaLabel: 'Multiply',
       code: KeyCode.Multiply
     },
     {
@@ -69,6 +75,7 @@ const keys: {
     },
     {
       label: '-',
+      ariaLabel: 'Subtract',
       code: KeyCode.Subtract
     },
     {
@@ -78,11 +85,13 @@ const keys: {
     },
     {
       label: '.',
+      ariaLabel: 'Decimal point',
       code: KeyCode.Comma
     },
     {
       classes: 'PlusKey',
       label: '+',
+      ariaLabel: 'Add',
       code: KeyCode.Add
     }
   ];
@@ -95,15 +104,19 @@ export const KeyboardComponent: React.FC<KeyboardComponentProps> = (
   props: KeyboardComponentProps
 ) => {
   return (
-    <div className="Keyboard">
-      {keys.map((key, index) => (
+    <fieldset
+      aria-label="Calculator keypad"
+      className="Keyboard"
+    >
+      {keys.map((key) => (
         <KeyComponent
-          key={index}
+          ariaLabel={key.ariaLabel}
           classes={key.classes}
+          key={key.code}
           label={key.label}
           onClick={_e => props.onKeyClick(key.code)}
         />
       ))}
-    </div>
+    </fieldset>
   );
 };

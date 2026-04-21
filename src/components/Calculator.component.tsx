@@ -6,7 +6,7 @@ import { AboutContainerComponent } from './About/AboutContainer.component';
 
 const CalculatorComponent: React.FC = () => {
   return (
-    <div className="CalculatorComponent">
+    <main aria-label="React Calculator" className="CalculatorComponent">
       <h1>React Calculator</h1>
       <div>
         <div className="CalcBody">
@@ -22,7 +22,7 @@ const CalculatorComponent: React.FC = () => {
         </div>
         <AboutContainerComponent />
       </div>
-    </div>
+    </main>
   );
 };
 

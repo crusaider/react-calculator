@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { DisplayComponent } from './Display.component';
 
@@ -8,6 +8,12 @@ describe('DisplayComponent', () => {
     const { container } = render(
       <DisplayComponent elements={['1', '2', '3', '4']} />
     );
+
+    expect(
+      screen.getByRole('status', { name: 'Calculator display' }).getAttribute(
+        'aria-live'
+      )
+    ).toBe('polite');
 
     const lines = Array.from(container.querySelectorAll('.DisplayLine')).map(
       (el) => el.textContent

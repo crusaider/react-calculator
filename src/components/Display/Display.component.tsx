@@ -15,10 +15,15 @@ export const DisplayComponent: React.FC<DisplayComponentProps> = (
     .reverse();
 
   return (
-    <div className="DisplayComponent">
+    <output
+      aria-atomic="true"
+      aria-label="Calculator display"
+      aria-live="polite"
+      className="DisplayComponent"
+    >
       {lines.map((element, index) => (
         <DisplayLineComponent key={index} content={element} />
       ))}
-    </div>
+    </output>
   );
 };

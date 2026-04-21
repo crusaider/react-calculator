@@ -1,18 +1,28 @@
 .Key {
+  appearance: none;
+  background-color: #2f2317;
   border-style: outset;
   border-color: rgb(53, 51, 51);
   border-width: 3px 2px 2px;
   border-radius: 7px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 25px;
   margin: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2f2317;
-  color: #ffffff;
+  padding: 0;
 }
 
 .Key:active {
   border-width: 1px;
+}
+
+.Key:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
 }
