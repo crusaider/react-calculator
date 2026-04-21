@@ -41,6 +41,7 @@ It can also be started manually via GitHub Actions (`workflow_dispatch`).
 
 Dependency updates are automated with Dependabot via `.github/dependabot.yml`.
 A dependency review workflow at `.github/workflows/dependency-review.yml` runs on pull requests.
+A pull request template at `.github/pull_request_template.md` standardizes verification checklists.
 
 ## Available Scripts
 
