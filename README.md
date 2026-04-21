@@ -46,6 +46,11 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Runs tests once in non-interactive mode (CI-friendly).<br />
 Use this in automation or when you want a deterministic local test run.
 
+### `npm run typecheck`
+
+Runs TypeScript type checking without emitting output files.<br />
+Use this for a fast static safety check during development and in CI.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
