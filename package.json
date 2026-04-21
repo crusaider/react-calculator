@@ -22,6 +22,7 @@
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test --watchAll=false",
     "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm run test:ci",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

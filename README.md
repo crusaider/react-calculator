@@ -51,6 +51,11 @@ Use this in automation or when you want a deterministic local test run.
 Runs TypeScript type checking without emitting output files.<br />
 Use this for a fast static safety check during development and in CI.
 
+### `npm run verify`
+
+Runs both typecheck and CI test commands in sequence.<br />
+Use this as a quick pre-push confidence check.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
