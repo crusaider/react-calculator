@@ -38,6 +38,8 @@ It runs on push and pull requests, and executes:
 
 It also cancels older in-progress runs for the same branch when a newer commit is pushed.
 
+Dependency updates are automated with Dependabot via `.github/dependabot.yml`.
+
 ## Available Scripts
 
 In the project directory, you can run:
