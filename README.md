@@ -13,6 +13,7 @@ The repository includes a dev container configuration in [.devcontainer/devconta
 It is pinned to Node 16 because the current Create React App toolchain is old enough that newer Node/npm combinations are more likely to fail during install or runtime.
 
 For local non-container development, use Node 16 as well (see `.nvmrc`).
+Editor formatting defaults are defined in `.editorconfig`.
 
 When the container is created it runs:
 
