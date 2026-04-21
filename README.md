@@ -10,9 +10,9 @@ This project uses Vite + React + TypeScript.
 
 The repository includes a dev container configuration in [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json).
 
-It is configured for Node 20.
+It is configured for Node 24.
 
-For local development, editor configs are in `.editorconfig`, Husky pre-commit hooks run `npm run verify`, and `.gitignore` excludes IDE, OS, and npm artifacts.
+For local development, use Node 24 and npm 11. Editor configs are in `.editorconfig`, Husky pre-commit hooks run `npm run verify`, and `.gitignore` excludes IDE, OS, and npm artifacts.
 
 When the container is created it runs:
 

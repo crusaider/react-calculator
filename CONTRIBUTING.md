@@ -5,7 +5,7 @@ Thanks for your interest in contributing!
 ## Development Setup
 
 1. Clone the repository
-2. Install Node 20+ (see `package.json` engines)
+2. Install Node 24+ (see `package.json` engines)
 3. Run `npm ci`
 4. Create a feature branch from `master`
 
