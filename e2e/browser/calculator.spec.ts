@@ -26,6 +26,31 @@ test('supports keyboard-only calculator input in browser', async ({ page }) => {
   await expect(page.locator('.DisplayLine').last()).toHaveText('5');
 });
 
+test('supports direct physical keyboard input in browser', async ({ page }) => {
+  await page.goto('/');
+
+  await page.evaluate(() => {
+    const dispatchKey = (key: string, code?: string, shiftKey = false) => {
+      window.dispatchEvent(
+        new KeyboardEvent('keydown', {
+          bubbles: true,
+          cancelable: true,
+          code,
+          key,
+          shiftKey
+        })
+      );
+    };
+
+    dispatchKey('8', 'Digit8');
+    dispatchKey('Enter', 'Enter');
+    dispatchKey('3', 'Digit3');
+    dispatchKey('-', 'Minus');
+  });
+
+  await expect(page.locator('.DisplayLine').last()).toHaveText('5');
+});
+
 test('opens and closes about modal in browser', async ({ page }) => {
   await page.goto('/');
 

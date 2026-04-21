@@ -14,9 +14,11 @@
   background-color: white;
   border: none;
   color: inherit;
+  inset: auto;
   margin: 0;
   max-height: calc(100vh - 24px);
   padding: 12px;
+  position: static;
   border-radius: 3px;
   max-width: 300px;
   box-shadow: 6px 6px 6px darkgray;

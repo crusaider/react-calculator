@@ -36,4 +36,21 @@ describe('Calculator root wiring', () => {
     fireEvent.click(aboutButton);
     expect(container.querySelector('.AboutBoxComponent')).toBeTruthy();
   });
+
+  it('supports direct physical keyboard input', () => {
+    const store = createStore(rootReducer);
+    const { container } = render(
+      <Provider store={store}>
+        <CalculatorComponent />
+      </Provider>
+    );
+
+    fireEvent.keyDown(window, { key: '2' });
+    fireEvent.keyDown(window, { key: 'Enter' });
+    fireEvent.keyDown(window, { key: '3' });
+    fireEvent.keyDown(window, { key: '+' });
+
+    const lines = container.querySelectorAll('.DisplayLine');
+    expect(lines[lines.length - 1].textContent).toBe('5');
+  });
 });
