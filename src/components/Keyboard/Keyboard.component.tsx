@@ -113,6 +113,7 @@ export const KeyboardComponent: React.FC<KeyboardComponentProps> = (
           ariaLabel={key.ariaLabel}
           classes={key.classes}
           key={key.code}
+          keyCode={key.code}
           label={key.label}
           onClick={_e => props.onKeyClick(key.code)}
         />

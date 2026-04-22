@@ -1,8 +1,9 @@
 // @vitest-environment jsdom
+import { act } from '@testing-library/react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import rootReducer from '../store';
 import CalculatorComponent from './Calculator.component';
 
@@ -72,5 +73,35 @@ describe('Calculator root wiring', () => {
 
     const lines = container.querySelectorAll('.DisplayLine');
     expect(lines[lines.length - 1].textContent).toBe('5');
+  });
+
+  it('applies and clears keyboard active class for mapped key', () => {
+    vi.useFakeTimers();
+
+    try {
+      const store = createStore(rootReducer);
+      render(
+        <Provider store={store}>
+          <CalculatorComponent />
+        </Provider>
+      );
+
+      const keyTwo = screen.getByRole('button', { name: '2' });
+      expect(keyTwo.classList.contains('KeyboardActive')).toBe(false);
+
+      act(() => {
+        fireEvent.keyDown(window, { code: 'Digit2', key: '2' });
+      });
+
+      expect(keyTwo.classList.contains('KeyboardActive')).toBe(true);
+
+      act(() => {
+        vi.advanceTimersByTime(121);
+      });
+
+      expect(keyTwo.classList.contains('KeyboardActive')).toBe(false);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

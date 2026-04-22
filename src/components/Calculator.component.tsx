@@ -10,6 +10,8 @@ const CalculatorComponent: React.FC = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    const keyPulseTimers = new Map<HTMLButtonElement, number>();
+
     const keyMap: Record<string, KeyCode> = {
       '0': KeyCode.Zero,
       '1': KeyCode.One,
@@ -33,6 +35,32 @@ const CalculatorComponent: React.FC = () => {
       '=': KeyCode.Enter,
       Backspace: KeyCode.Drop,
       Delete: KeyCode.Drop
+    };
+
+    const pulseMappedKey = (mappedKey: KeyCode) => {
+      const mappedButton = document.querySelector<HTMLButtonElement>(
+        `.Key[data-key-code="${mappedKey}"]`
+      );
+
+      if (!mappedButton) {
+        return;
+      }
+
+      const currentTimer = keyPulseTimers.get(mappedButton);
+      if (currentTimer !== undefined) {
+        window.clearTimeout(currentTimer);
+      }
+
+      mappedButton.classList.remove('KeyboardActive');
+      void mappedButton.offsetWidth;
+      mappedButton.classList.add('KeyboardActive');
+
+      const timerId = window.setTimeout(() => {
+        mappedButton.classList.remove('KeyboardActive');
+        keyPulseTimers.delete(mappedButton);
+      }, 120);
+
+      keyPulseTimers.set(mappedButton, timerId);
     };
 
     const codeMap: Record<string, KeyCode> = {
@@ -86,12 +114,18 @@ const CalculatorComponent: React.FC = () => {
       }
 
       event.preventDefault();
+      pulseMappedKey(mappedKey);
       dispatch(keyClicked(mappedKey));
     };
 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      keyPulseTimers.forEach((timerId, keyButton) => {
+        window.clearTimeout(timerId);
+        keyButton.classList.remove('KeyboardActive');
+      });
+      keyPulseTimers.clear();
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [dispatch]);
