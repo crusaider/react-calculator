@@ -18,10 +18,10 @@ test('calculates 2 enter 3 + => 5 in browser', async ({ page }) => {
 test('supports keyboard-only calculator input in browser', async ({ page }) => {
   await page.goto('/');
 
-  await key(page, '2').press('Enter');
-  await key(page, 'Enter').press('Enter');
-  await key(page, '3').press('Enter');
-  await key(page, 'Add').press('Enter');
+  await key(page, '2').press(' ');
+  await key(page, 'Enter').press(' ');
+  await key(page, '3').press(' ');
+  await key(page, 'Add').press(' ');
 
   await expect(page.locator('.DisplayLine').last()).toHaveText('5');
 });
