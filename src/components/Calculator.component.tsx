@@ -97,7 +97,7 @@ const CalculatorComponent: React.FC = () => {
 
         const focusedButton = target.closest('button');
         if (focusedButton?.classList.contains('Key')) {
-          if (event.key === 'Enter' || event.key === ' ') {
+          if (event.key === ' ') {
             return;
           }
         } else if (focusedButton) {
