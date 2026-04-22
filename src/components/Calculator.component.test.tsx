@@ -53,4 +53,24 @@ describe('Calculator root wiring', () => {
     const lines = container.querySelectorAll('.DisplayLine');
     expect(lines[lines.length - 1].textContent).toBe('5');
   });
+
+  it('supports direct physical keyboard input while a key is focused', () => {
+    const store = createStore(rootReducer);
+    const { container } = render(
+      <Provider store={store}>
+        <CalculatorComponent />
+      </Provider>
+    );
+
+    const focusedKey = screen.getByRole('button', { name: '2' });
+    focusedKey.focus();
+
+    fireEvent.keyDown(focusedKey, { code: 'Digit8', key: '8' });
+    fireEvent.keyDown(focusedKey, { code: 'Equal', key: '=' });
+    fireEvent.keyDown(focusedKey, { code: 'Digit3', key: '3' });
+    fireEvent.keyDown(focusedKey, { code: 'Minus', key: '-' });
+
+    const lines = container.querySelectorAll('.DisplayLine');
+    expect(lines[lines.length - 1].textContent).toBe('5');
+  });
 });

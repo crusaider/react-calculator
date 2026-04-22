@@ -29,6 +29,19 @@ test('supports keyboard-only calculator input in browser', async ({ page }) => {
 test('supports direct physical keyboard input in browser', async ({ page }) => {
   await page.goto('/');
 
+  await key(page, '2').focus();
+
+  await page.keyboard.press('8');
+  await page.keyboard.press('=');
+  await page.keyboard.press('3');
+  await page.keyboard.press('-');
+
+  await expect(page.locator('.DisplayLine').last()).toHaveText('5');
+});
+
+test('supports direct physical keyboard input with explicit keyboard events', async ({ page }) => {
+  await page.goto('/');
+
   await page.evaluate(() => {
     const dispatchKey = (key: string, code?: string, shiftKey = false) => {
       window.dispatchEvent(

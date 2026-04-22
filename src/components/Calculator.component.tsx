@@ -63,7 +63,16 @@ const CalculatorComponent: React.FC = () => {
 
       const target = event.target;
       if (target instanceof HTMLElement) {
-        if (target.closest('button, a, dialog')) {
+        if (target.closest('a, dialog, input, textarea, select, [contenteditable="true"]')) {
+          return;
+        }
+
+        const focusedButton = target.closest('button');
+        if (focusedButton?.classList.contains('Key')) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            return;
+          }
+        } else if (focusedButton) {
           return;
         }
       }
